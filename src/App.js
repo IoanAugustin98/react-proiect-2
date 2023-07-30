@@ -1,4 +1,9 @@
-import React from 'react';  
+import React              from 'react'; 
+import { Route, Routes }  from 'react-router-dom'; 
+import Home               from './Pages/Home';
+import About              from './Pages/About';
+import LogIn              from './Pages/LogIn';
+import Page404            from './Pages/Page404';
 
 class App extends React.Component{
   constructor(){
@@ -7,7 +12,15 @@ class App extends React.Component{
   }
   render(){
     return(
-      <div>Testare <h1>Ceva</h1></div>
+      <div>
+        <Routes>
+            <Route exact  path="/"      element={<Home />} />
+            <Route        path="/login" element={<LogIn />} />
+            <Route        path="/about" element={<About />} />
+            
+            <Route        path="*"      element={<Page404 />} />
+        </Routes>
+      </div>
     );
   }
 }
