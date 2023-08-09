@@ -1,24 +1,26 @@
-import React              from 'react'; 
-import { Route, Routes }  from 'react-router-dom'; 
-import Home               from './Pages/Home';
-import About              from './Pages/About';
-import LogIn              from './Pages/LogIn';
-import Page404            from './Pages/Page404';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from './Pages/Home';
+import About from './Pages/About';
+import LogIn from './Pages/LogIn';
+import Page404 from './Pages/Page404';
+import Category from './Pages/Category';
 
-class App extends React.Component{
-  constructor(){
+class App extends React.Component {
+  constructor() {
     super();
     this.state = {};
   }
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <Routes>
-            <Route exact  path="/"      element={<Home />} />
-            <Route        path="/login" element={<LogIn />} />
-            <Route        path="/about" element={<About />} />
-            
-            <Route        path="*"      element={<Page404 />} />
+          <Route exact path="/" element={<Home />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/category/:categoryName" element={<Category />} />
+
+          <Route path="*" element={<Page404 />} />
         </Routes>
       </div>
     );
